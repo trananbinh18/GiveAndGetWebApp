@@ -1,0 +1,106 @@
+﻿@model giveandgetwebapp.Models.Post
+
+@{
+    ViewBag.Title = "Details";
+
+    var base64 = Convert.ToBase64String(Model.Image1.Image1);
+    var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Post</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <img src="@imgSrc" />
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Contents)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contents)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExpireDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExpireDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GiveType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiveType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReceiverCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReceiverCount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExpireType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExpireType) Day
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Catalog.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Catalog.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.StudentId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.StudentId)
+        </dd>
+        <dt>
+            @Html.ActionLink("Delete", "Delete", new { id = Model.Id })
+        </dt>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

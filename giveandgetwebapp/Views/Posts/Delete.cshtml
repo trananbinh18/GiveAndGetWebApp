@@ -1,0 +1,136 @@
+﻿@model giveandgetwebapp.Models.Post
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Post</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Contents)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contents)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExpireDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExpireDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GiveType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiveType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReceiverCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReceiverCount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExpireType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExpireType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Catalog.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Catalog.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image1.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Image1.Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image4.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Image4.Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image5.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Image5.Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.StudentId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.StudentId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User1.StudentId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User1.StudentId)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

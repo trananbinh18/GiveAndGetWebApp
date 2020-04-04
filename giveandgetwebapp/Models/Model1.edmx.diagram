@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ba64dc6adcf0483c9a7ad78965667f78" Name="Diagram1">
+        <EntityTypeShape EntityType="cap22t6Model.AdminWeb" Width="1.5" PointX="7.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cap22t6Model.Catalog" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="cap22t6Model.Image" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="cap22t6Model.Notification" Width="1.5" PointX="5.25" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cap22t6Model.Post" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="cap22t6Model.Report" Width="1.5" PointX="8.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="cap22t6Model.sysdiagram" Width="1.5" PointX="9.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cap22t6Model.User" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="cap22t6Model.FK_Post_Catalog" ManuallyRouted="false" />
+        <AssociationConnector Association="cap22t6Model.FK_Post_Image" ManuallyRouted="false" />
+        <AssociationConnector Association="cap22t6Model.FK_Post_Image1" ManuallyRouted="false" />
+        <AssociationConnector Association="cap22t6Model.FK_Post_Image2" ManuallyRouted="false" />
+        <AssociationConnector Association="cap22t6Model.FK_User_Image" ManuallyRouted="false" />
+        <AssociationConnector Association="cap22t6Model.FK_Notification_Post" ManuallyRouted="false" />
+        <AssociationConnector Association="cap22t6Model.FK_Notification_User" ManuallyRouted="false" />
+        <AssociationConnector Association="cap22t6Model.FK_Post_User" ManuallyRouted="false" />
+        <AssociationConnector Association="cap22t6Model.FK_Post_User1" ManuallyRouted="false" />
+        <AssociationConnector Association="cap22t6Model.FK_Report_Post" ManuallyRouted="false" />
+        <AssociationConnector Association="cap22t6Model.FK_Report_User" ManuallyRouted="false" />
+        <AssociationConnector Association="cap22t6Model.Follow" ManuallyRouted="false" />
+        <AssociationConnector Association="cap22t6Model.Like" ManuallyRouted="false" />
+        <AssociationConnector Association="cap22t6Model.Receive" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

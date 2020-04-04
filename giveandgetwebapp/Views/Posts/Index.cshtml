@@ -1,0 +1,87 @@
+﻿@model IEnumerable<giveandgetwebapp.Models.Post>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Posts List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contents)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExpireDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GiveType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReceiverCount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExpireType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Catalog.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.StudentId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Contents)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreateDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExpireDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GiveType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReceiverCount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExpireType) Day
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Catalog.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.StudentId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
