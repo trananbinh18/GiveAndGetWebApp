@@ -18,13 +18,21 @@
                 </button>
                 @Html.ActionLink("Give And Get", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Post", "Index", "Posts")</li>
-                    <li>@Html.ActionLink("Report", "Index", "Reports")</li>
-                </ul>
-            </div>
+
+            @if (Session["Id"] != null)
+            {
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Post", "Index", "Posts")</li>
+                        <li>@Html.ActionLink("Report", "Index", "Reports")</li>
+                    </ul>
+                    <ul class="nav navbar-nav" style="float:right">
+                        <li>@Html.ActionLink("Logout", "Logout", "Login")</li>
+                    </ul>
+                </div>
+            }
+
         </div>
     </div>
     <div class="container body-content">

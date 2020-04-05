@@ -27,5 +27,11 @@ namespace giveandgetwebapp.Controllers
             
             return RedirectToAction("Index", "Home");
         }
+
+        public ActionResult Logout() {
+            Session.Clear();
+
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
