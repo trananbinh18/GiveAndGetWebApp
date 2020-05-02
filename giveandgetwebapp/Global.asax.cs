@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FluentScheduler;
+using giveandgetwebapp.Job;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,6 +14,11 @@ namespace giveandgetwebapp
     {
         protected void Application_Start()
         {
+            //Job scheduling
+            var jobRegistry = new Registry();
+            jobRegistry.Schedule<JobCheckOutOfDate>().ToRunNow().AndEvery(1).Hours();
+            JobManager.Initialize(jobRegistry);
+
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
