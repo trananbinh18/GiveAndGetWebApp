@@ -12,7 +12,7 @@ namespace giveandgetwebapp.Job
         public void Execute()
         {
             cap22t6Entities dbEntity = new cap22t6Entities();
-            Array arrPostOutOfDate = dbEntity.Posts.Where(x => x.ExpireDate <= DateTime.Now).ToArray();
+                Array arrPostOutOfDate = dbEntity.Posts.Where(x => x.Status == 1 && x.ExpireDate <= DateTime.Now).ToArray();
             foreach (Post post in arrPostOutOfDate) {
                 post.Status = 2;
                 Notification notification = new Notification();
