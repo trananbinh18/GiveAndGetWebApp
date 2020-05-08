@@ -6,9 +6,9 @@
 
 <h2>Posts List</h2>
 
-<p>
+@*<p>
     @Html.ActionLink("Create New", "Create")
-</p>
+</p>*@
 <table class="table">
     <tr>
         <th>
@@ -59,16 +59,38 @@
             @Html.DisplayFor(modelItem => item.ExpireDate)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.GiveType)
+            @if (item.GiveType == 1 )
+            {
+                <p>Tự chọn</p>
+            }
+            @if(item.GiveType == 2)
+            {
+                <p>Ngẫu nhiên</p>
+            }
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Status)
+            @if (item.Status == 1)
+            {
+                <p>Bài viết được tạo thành công</p>
+            }
+            @if (item.Status == 2)
+            {
+                <p>Bài viết hết hạn</p>
+            }
+            @if (item.Status == 3)
+            {
+                <p>Bài viết chờ đánh giá</p>
+            }
+            @if (item.Status == 4)
+            {
+                <p>Bài viết đã đóng</p>
+            }
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ReceiverCount)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ExpireType) Day
+            @Html.DisplayFor(modelItem => item.ExpireType) Days
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Catalog.Name)

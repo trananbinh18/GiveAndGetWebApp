@@ -124,13 +124,25 @@
         </dd>
 
     </dl>
-
+    <textarea id="textlido" style="width:1000px; height:150px" placeholder="Vui lòng điền lí do xóa bài viết..."></textarea>
+    l
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
+            <input id="buttondelete" type="submit" disabled value="Delete" class="btn btn-default" /> |
             @Html.ActionLink("Back to List", "Index")
         </div>
     }
+    
 </div>
+
+<script>
+    let deletea = document.getElementById('buttondelete');
+    let TextArea = document.getElementById('textlido');
+    TextArea.addEventListener('input', () => {
+        if (TextArea.value != '') {
+            deletea.disabled = false;
+        }
+    })
+</script>
