@@ -122,19 +122,19 @@
         <dd>
             @Html.DisplayFor(model => model.User1.StudentId)
         </dd>
-
     </dl>
-    <textarea id="textlido" style="width:1000px; height:150px" placeholder="Vui lòng điền lí do xóa bài viết..."></textarea>
-    l
-    @using (Html.BeginForm()) {
+    
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
+        <textarea id="textlido" style="width:1000px; height:150px" name="lidodelete" placeholder="Vui lòng điền lí do xóa bài viết..."></textarea>
 
         <div class="form-actions no-color">
             <input id="buttondelete" type="submit" disabled value="Delete" class="btn btn-default" /> |
             @Html.ActionLink("Back to List", "Index")
         </div>
     }
-    
+
 </div>
 
 <script>

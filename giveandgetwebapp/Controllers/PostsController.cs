@@ -134,9 +134,19 @@ namespace giveandgetwebapp.Controllers
         // POST: Posts/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(int id, string lidodelete)
         {
             Post post = db.Posts.Find(id);
+            //Tạo notification
+            Notification createNotification = new Notification();
+            createNotification.UserId = (int)post.Actor;
+            createNotification.PostId = null;
+            createNotification.Status = 1;
+            createNotification.CreateDate = DateTime.Now;
+            createNotification.Type = 0;
+            createNotification.Title = "Bài viết của bạn đã bị xóa";
+            createNotification.Contents = "vì lí do " + lidodelete;
+            db.Notifications.Add(createNotification);
             db.Posts.Remove(post);
             db.SaveChanges();
             return RedirectToAction("Index");
