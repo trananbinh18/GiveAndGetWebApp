@@ -15,13 +15,15 @@
     <dl class="dl-horizontal">
         <img src="@imgSrc" />
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
+        <div>
+            <dt>
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+        </div>
 
         <dt>
             @Html.DisplayNameFor(model => model.Contents)
