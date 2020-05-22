@@ -3,48 +3,97 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <title>@ViewBag.Title - Give and Get Application</title>
+    @Styles.Render("~/Content/Site.css")
+    @Scripts.Render("~/Scripts/scripts.js")
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Give And Get", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-
-            @if (Session["Id"] != null)
-            {
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("Post", "Index", "Posts")</li>
-                        <li>@Html.ActionLink("Report", "Index", "Reports")</li>
-                    </ul>
-                    <ul class="nav navbar-nav" style="float:right">
-                        <li>@Html.ActionLink("Logout", "Logout", "Login")</li>
-                    </ul>
+    @*<div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Give And Get", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
                 </div>
-            }
+
+                @if (Session["Id"] != null)
+                {
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Post", "Index", "Posts")</li>
+                            <li>@Html.ActionLink("Report", "Index", "Reports")</li>
+                        </ul>
+                        <ul class="nav navbar-nav" style="float:right">
+                            <li>@Html.ActionLink("Logout", "Logout", "Login")</li>
+                        </ul>
+                    </div>
+                }
+
+            </div>
+        </div>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - Give and get application</p>
+            </footer>
+        </div>*@
+
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <div class="sb-sidenav-menu-heading">Give and Get Application</div>
+                        @if (Session["Id"] != null)
+                        {
+                            <a class="nav-link" href="@Url.Action("Index", "Home")">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Dashboard
+                            </a>
+
+                            <div class="sb-sidenav-menu-heading">List</div>
+                            <a class="nav-link" href="@Url.Action("Index", "Posts")">
+                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                                Posts
+                            </a>
+                            <a class="nav-link" href="@Url.Action("Index", "Reports")">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                Reports
+                            </a>
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <a class="nav-link" href="@Url.Action("Logout", "Login")">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                Logout
+                            </a>
+                        }
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div id="layoutSidenav_content">
+            @RenderBody()
+
+            <footer>
+                <p>&copy; @DateTime.Now.Year - Give and get application</p>
+            </footer>
 
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Give and get application</p>
-        </footer>
-    </div>
+</div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
 </body>
 </html>
