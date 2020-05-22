@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="cap22t6Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="cap22t6Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AdminWeb">
           <Key>
             <PropertyRef Name="Id" />
@@ -76,6 +76,7 @@
           <Property Name="Status" Type="int" />
           <Property Name="ReceiverCount" Type="int" />
           <Property Name="ExpireType" Type="int" />
+          <Property Name="LikeCount" Type="int" />
         </EntityType>
         <EntityType Name="Receive">
           <Key>
@@ -120,6 +121,8 @@
           <Property Name="ReportCount" Type="int" />
           <Property Name="RatingCount" Type="float" />
           <Property Name="NumberPostHadRated" Type="int" />
+          <Property Name="IsVerify" Type="bit" />
+          <Property Name="VerifyToken" Type="nvarchar(max)" />
         </EntityType>
         <Association Name="FK_Follow_Post">
           <End Role="Post" Type="Self.Post" Multiplicity="1" />
@@ -420,8 +423,7 @@
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="cap22t6Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -498,6 +500,7 @@
           <NavigationProperty Name="Users" Relationship="Self.Follow" FromRole="Post" ToRole="User" />
           <NavigationProperty Name="Users1" Relationship="Self.Like" FromRole="Post" ToRole="User" />
           <NavigationProperty Name="Users2" Relationship="Self.Receive" FromRole="Post" ToRole="User" />
+          <Property Name="LikeCount" Type="Int32" />
         </EntityType>
         <EntityType Name="Report">
           <Key>
@@ -544,6 +547,8 @@
           <NavigationProperty Name="Posts2" Relationship="Self.Follow" FromRole="User" ToRole="Post" />
           <NavigationProperty Name="Posts3" Relationship="Self.Like" FromRole="User" ToRole="Post" />
           <NavigationProperty Name="Posts4" Relationship="Self.Receive" FromRole="User" ToRole="Post" />
+          <Property Name="IsVerify" Type="Boolean" />
+          <Property Name="VerifyToken" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_Post_Catalog">
           <End Role="Catalog" Type="Self.Catalog" Multiplicity="0..1" />
@@ -810,6 +815,7 @@
           <EntitySetMapping Name="Posts">
             <EntityTypeMapping TypeName="cap22t6Model.Post">
               <MappingFragment StoreEntitySet="Post">
+                <ScalarProperty Name="LikeCount" ColumnName="LikeCount" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="CatalogId" ColumnName="CatalogId" />
                 <ScalarProperty Name="Actor" ColumnName="Actor" />
@@ -851,6 +857,8 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="cap22t6Model.User">
               <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="VerifyToken" ColumnName="VerifyToken" />
+                <ScalarProperty Name="IsVerify" ColumnName="IsVerify" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Avatar" ColumnName="Avatar" />
                 <ScalarProperty Name="StudentId" ColumnName="StudentId" />

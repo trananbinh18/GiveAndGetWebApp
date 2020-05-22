@@ -38,6 +38,8 @@ namespace giveandgetwebapp.Models
         public Nullable<int> ReportCount { get; set; }
         public Nullable<double> RatingCount { get; set; }
         public Nullable<int> NumberPostHadRated { get; set; }
+        public Nullable<bool> IsVerify { get; set; }
+        public string VerifyToken { get; set; }
     
         public virtual Image Image { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

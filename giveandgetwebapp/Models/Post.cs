@@ -39,6 +39,7 @@ namespace giveandgetwebapp.Models
         public Nullable<int> Status { get; set; }
         public Nullable<int> ReceiverCount { get; set; }
         public Nullable<int> ExpireType { get; set; }
+        public Nullable<int> LikeCount { get; set; }
     
         public virtual Catalog Catalog { get; set; }
         public virtual Image Image1 { get; set; }
