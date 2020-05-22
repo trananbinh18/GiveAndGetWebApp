@@ -31,12 +31,10 @@ namespace giveandgetwebapp.Controllers
                 User userFind = db.Users.Where(x => x.Email == model.email).FirstOrDefault();
                 if (userFind != null) {
                     messageError = "Email này đã được đăng ký";
-                    ErrorMessageModel errorMessageModel1 = new ErrorMessageModel();
-                    errorMessageModel1.errorMessage = messageError;
                     return new JsonResult()
                     {
                         ContentType = "application/json",
-                        Data = errorMessageModel1,
+                        Data = messageError,
                         JsonRequestBehavior = JsonRequestBehavior.AllowGet
                     };
                 }
@@ -66,11 +64,9 @@ namespace giveandgetwebapp.Controllers
                 messageError += error.ErrorMessage + "\n";
             }
 
-            ErrorMessageModel errorMessageModel = new ErrorMessageModel();
-            errorMessageModel.errorMessage = messageError;
             return new JsonResult() {
                 ContentType = "application/json",
-                Data = errorMessageModel,
+                Data = messageError,
                 JsonRequestBehavior = JsonRequestBehavior.AllowGet
             };
 
