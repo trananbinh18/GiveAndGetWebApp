@@ -4,43 +4,61 @@
     ViewBag.Title = "Report List";
 }
 
-<h2>Reports list</h2>
+@*<h2>Reports list</h2>*@
 
 @*<p>
-    @Html.ActionLink("Create New", "Create")
-</p>*@
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Contents)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Post.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.User.Name)
-        </th>
-        <th></th>
-    </tr>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+<div class="card mb-4">
+    <div class="card-header"><i class="fas fa-table mr-1"></i>Reports List</div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered dataTable" id="dataTable">
+                <thead>
+                    <tr role="row">
+                        <th class="sorting_asc">
+                            @Html.DisplayNameFor(model => model.Contents)
+                        </th>
+                        <th class="sorting">
+                            @Html.DisplayNameFor(model => model.Post.Title)
+                        </th>
+                        <th class="sorting">
+                            @Html.DisplayNameFor(model => model.User.Name)
+                        </th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr role="row" class="odd">
+                            <td class="sorting_1">
+                                @Html.DisplayFor(modelItem => item.Contents)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Post.Title)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.User.Name) | @Html.DisplayFor(modelItem => item.User.StudentId)
+                            </td>
+                            <td>
+                                @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }) |*@
+                                @Html.ActionLink("Details Post", "Details", "Posts", new { id = item.PostId }, null)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Contents)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Post.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.User.Name) | @Html.DisplayFor(modelItem => item.User.StudentId)
-        </td>
-        <td>
-            @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }) |*@ 
-            @Html.ActionLink("Details Post", "Details", "Posts", new { id = item.PostId },null)
-        </td>
-    </tr>
-}
+            </table>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="~/Scripts/scripts/scripts.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+<script src="~/Scripts/datatables-demo.js"></script>
 
-</table>
