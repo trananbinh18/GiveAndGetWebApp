@@ -17,6 +17,7 @@ namespace giveandgetwebapp.Models
         public string email { get; set; }
         [Required(ErrorMessage = "Trường Mật khẩu bắt buộc nhập")]
         public string password { get; set; }
+        public string gender { get; set; }
 
     }
 }

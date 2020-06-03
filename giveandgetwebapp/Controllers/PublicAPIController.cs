@@ -49,11 +49,13 @@ namespace giveandgetwebapp.Controllers
                 user.Phone = model.phone;
                 user.IsVerify = false;
                 user.VerifyToken = stringToken;
+                user.Gender = int.Parse(model.gender);
 
                 db.Users.Add(user);
                 db.SaveChanges();
 
-                String verifyURL = Url.Link("API Default", new { controller = "PublicAPI", action = "verifyUser" });
+                //String verifyURL = Url.Link("API Default", new { controller = "PublicAPI", action = "verifyUser" });
+                String verifyURL = "http://cntttest.vanlanguni.edu.vn:18080/Cap22T6/api/PublicAPI/verifyUser";
                 verifyURL += "?id=" + user.Id + "&token=" + user.VerifyToken;
 
                 SendEmailVerify(user.Email, user.Name, verifyURL);
