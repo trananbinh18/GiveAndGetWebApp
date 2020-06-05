@@ -10848,5 +10848,17 @@ body {
     }
 
 #layoutSidenav {
-    height:100%;
+    min-height:100%;
 }
+
+.post-detail-content {
+    padding:20px;
+}
+
+.post-detail-content img{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    padding-bottom:40px;
+}
+
